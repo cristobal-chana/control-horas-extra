@@ -8,7 +8,7 @@ ruta=pt.Path("datos/registros.json")
 ruta1=pt.Path("datos/sumatorias.json")
 #####################################################################
 
-sueldo=input("Ingrese su sueldo base")
+
     #comisiones=input("Ingrese comisiones")
     #bonos=input("Ingrese Bonos")    #
 
@@ -26,8 +26,10 @@ sueldo=input("Ingrese su sueldo base")
 
 #En este apartado debe ir la parte de la grafica, estoy haciendo todo lo que incluya manejo de archivos
 # Y demas en  diferentes modulos
-fecha=str(input("Ingrese fecha"))
-hora_extra=float(input("Ingrese numero de horas extras"))
+sueldo=200000
+fecha="2002-02-02"
+hora_extra=12.0
+
 ord.actualizar_registros(ruta,fecha,hora_extra,sueldo)
 ord.sumatoria_horas_dinero(ruta, ruta1)
     

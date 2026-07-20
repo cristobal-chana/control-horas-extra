@@ -28,12 +28,6 @@ def sumatoria_horas_dinero(ruta,ruta1):
     with open(ruta1, "w", encoding="utf-8") as archivo:
         json.dump(data, archivo, indent=4, ensure_ascii=False)
 
-
-
-fecha=str(input("Ingrese fecha"))
-hora_extra=float(input("Ingrese numero de horas extras"))
-
-
 def actualizar_registros(ruta,fecha,hora_extra,sueldo):
     if ruta.is_file():
         pass
@@ -46,18 +40,12 @@ def actualizar_registros(ruta,fecha,hora_extra,sueldo):
     with open(ruta,"r",encoding="utf-8") as archivo1:
         datos=json.load(archivo1)
 
-    if datos.get(fecha) is None:
-        ganancia=hrs.horas_ext(int(sueldo),hora_extra)
-        datos[fecha]={"Horas Extra":str(hora_extra),"Ganancia":str(ganancia)}
-        with open(ruta,"w",encoding="utf-8") as archivo1:
-            json.dump(datos,archivo1,indent=4,ensure_ascii=False)
-    else:
+    if datos.get(fecha) is not None:
+        return f"Esta fecha ya esta ocupada con {datos.get(fecha)}"
 
-        return "Esta fecha ya esta ocupada con " f"{"datos.get(fecha)"}"
-    
-    with open(ruta, "r",encoding="utf-8" ) as archivo:
-        json_1=json.load(archivo)
-    json_2=est.radix_sort(json_1)
-    
+    ganancia=hrs.horas_ext(int(sueldo),hora_extra)
+    datos[fecha]={"Horas Extra":str(hora_extra),"Ganancia":str(ganancia)}
+    datos_ordenados=est.radix_sort(datos)
+
     with open(ruta,"w",encoding="utf-8") as archivo:
-        json.dump(json_2,archivo, indent=4, ensure_ascii=False)
+        json.dump(datos_ordenados,archivo, indent=4, ensure_ascii=False)

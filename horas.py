@@ -21,13 +21,9 @@ def imponibles(sueldo_base, comisiones, bonos,horas_extra):
         if sueldo_base*0.25>=213354:
             return 213354
         else:
-            return sueldo_base*0,25
+            return sueldo_base*0.25
         
     gratificacion=calculo_gratificacion(sueldo_base)
-
-    def horas_ext(sueldo_base,horas_extra):
-        hora_normal=(sueldo_base/30)*(28/168)
-        return hora_normal*1,5*horas_extra
     
     horas_mas=horas_ext(sueldo_base,horas_extra)
         

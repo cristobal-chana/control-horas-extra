@@ -7,7 +7,8 @@ def cargas(imponibles_promedio):
         return 13870
     if 1478539<=imponibles_promedio:
         return 0
-
+def hora_normal(sueldo_base): #Ajustado a las 42 horas semanales
+    return (sueldo_base/30)*(28/168)
 
 def horas_ext(sueldo_base,horas_extra):
     hora_normal=(sueldo_base/30)*(28/168)
